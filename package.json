@@ -1,0 +1,32 @@
+{
+  "name": "koa-regiment",
+  "version": "0.0.1",
+  "description": "Koa Regiment",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendanvinson/koa-regiment.git"
+  },
+  "keywords": [
+    "cluster",
+    "worker",
+    "process",
+    "restart",
+    "koa",
+    "nodejs"
+  ],
+  "author": "Brendan Vinson",
+  "license": "MIT",
+  "engines": {
+    "node": ">=5.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/brendanvinson/koa-regiment/issues"
+  },
+  "homepage": "https://github.com/brendanvinson/koa-regiment#README.md",
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.0"
+  }
+}

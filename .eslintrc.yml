@@ -1,0 +1,13 @@
+extends: airbnb-base
+rules:
+  new-cap: 1
+  no-shadow: 1
+  comma-dangle:
+    - error
+    - never
+  consistent-return: 1
+  camelcase: 1
+  no-param-reassign: 0
+  import/no-unresolved: 1
+  global-require: 1
+  no-empty-pattern: 1
