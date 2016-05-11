@@ -19,7 +19,7 @@ const app = new Koa();
 app.use(regiment.middleware.MemoryFootprint(750)); // Replace workers after rss reaches 750mb
 app.use(regiment.middleware.RequestCount(1000));   // Replace workers after every 1000 requests
 
-regiment((id) => app.listen() );          // default options
+regiment((id) => app.listen());          // default options
 regiment((id) => { return app.listen(); }, options); // with options
 ```
 
@@ -61,4 +61,4 @@ for the worker to die by itself and then forcefully kill it.
 
 #### Thanks
 
-Based off of @HustleInc's Regiment library for Express.
+Based heavily off of @HustleInc's Regiment library for Express.
