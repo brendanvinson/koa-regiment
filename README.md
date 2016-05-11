@@ -1,6 +1,6 @@
-## Koa Regiment - Whip your cluster into shape!
+## Koa Regiment
 
-Koa Regiment abuses the NodeJS cluster module in order to seamlessly replace workers after certain
+Koa Regiment is a small rewrite of [Regiment for Express](https://github.com/HustleInc/regiment/) for Koa and ES6 compatibility. It works by abusing the NodeJS cluster module in order to seamlessly replace workers after certain
 criteria is met. The goal is to keep the cluster up without dropping requests.
 
 #### Installation
