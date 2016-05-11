@@ -51,8 +51,8 @@ and sends a signal to the old worker which instructs it to not accept any new co
 exit after servicing all current requests. The old worker is then disconnected from the cluster
 and receives no new requests.
 
- - Note: You can have up to 2x `numWorkers` when replacements come online but before the old
-ones gracefully die. This is temporary and *by design* as it drops back down to `numWorkers`.
+ - Note: You can have up to 2x `workers` when replacements come online but before the old
+ones gracefully die. This is temporary and *by design* as it drops back down to `workers`.
 
  - Note: By default, the number of workers is set to the number of available CPUs. This module works
 just as well on small servers where the number of CPUs is 1. A new worker is spawned and the old one
