@@ -34,30 +34,19 @@ regiment((id) => { return app.listen(); }, options); // with options
 
 #### Why would you want this?
 
- - You have a leak in production and want your application to stay up while you figure out what is
-going on or wait for a dependency to fix their leak.
+ - You have a leak in production and want your application to stay up while you figure out what is going on or wait for a dependency to fix their leak.
 
- - You are familiar with `max-old-space-size` and other V8 knobs that crash your application
-when the threshold is met instead of gracefully responding to outstanding requests.
+ - You are familiar with `max-old-space-size` and other V8 knobs that crash your application when the threshold is met instead of gracefully responding to outstanding requests.
 
 #### How does it work?
 
-Workers use middleware to monitor for certain conditions like RSS size or requests served. When the
-criteria for replacement is met, a worker signals that it needs to be replaced by sending a message
-to the cluster.
+Workers use middleware to monitor for certain conditions like RSS size or requests served. When the criteria for replacement is met, a worker signals that it needs to be replaced by sending a message to the cluster.
 
-The cluster receives the message and spins up a new worker. The cluster listens for the new worker
-and sends a signal to the old worker which instructs it to not accept any new connections and to
-exit after servicing all current requests. The old worker is then disconnected from the cluster
-and receives no new requests.
+The cluster receives the message and spins up a new worker. The cluster listens for the new worker and sends a signal to the old worker which instructs it to not accept any new connections and to exit after servicing all current requests. The old worker is then disconnected from the cluster and receives no new requests.
 
- - Note: You can have up to 2x `workers` when replacements come online but before the old
-ones gracefully die. This is temporary and *by design* as it drops back down to `workers`.
+ - Note: You can have up to 2x `workers` when replacements come online but before the old ones gracefully die. This is temporary and *by design* as it drops back down to `workers`.
 
- - Note: By default, the number of workers is set to the number of available CPUs. This module works
-just as well on small servers where the number of CPUs is 1. A new worker is spawned and the old one
-is replaced. The default for deadline is 15 seconds. Cluster will wait this amount of time
-for the worker to die by itself and then forcefully kill it.
+ - Note: By default, the number of workers is set to the number of available CPUs. This module works just as well on small servers where the number of CPUs is 1. A new worker is spawned and the old one is replaced. Cluster will wait this amount of time for the worker to die by itself and then forcefully kill it.
 
 #### Thanks
 
