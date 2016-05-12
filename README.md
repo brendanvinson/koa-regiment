@@ -27,8 +27,8 @@ regiment((id) => { return app.listen(); }, options); // with options
 
 ```js
 {
-  workers: 1,  // Number of workers you want -- defaults to number of CPUs
-  deadline: 5000, // (ms) to wait for worker to gracefully die before forcing death -- defaults to 15000
+  workers: 1,  // Number of workers you want -- default is number of CPUs
+  deadline: 5000, // Milliseconds to wait for worker to gracefully die before forcing death -- default is 15000
 }
 ```
 
