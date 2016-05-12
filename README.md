@@ -28,7 +28,7 @@ regiment((id) => { return app.listen(); }, options); // with options
 ```js
 {
   workers: 1,  // Number of workers you want -- defaults to number of CPUs
-  deadline: 5000, // Milliseconds to wait for worker to gracefully die before forcing death
+  deadline: 5000, // (ms) to wait for worker to gracefully die before forcing death -- defaults to 15000
 }
 ```
 
@@ -56,7 +56,7 @@ ones gracefully die. This is temporary and *by design* as it drops back down to 
 
  - Note: By default, the number of workers is set to the number of available CPUs. This module works
 just as well on small servers where the number of CPUs is 1. A new worker is spawned and the old one
-is replaced. The default for deadline is 15 seconds. HTTP-Cluster will wait this amount of time
+is replaced. The default for deadline is 15 seconds. Cluster will wait this amount of time
 for the worker to die by itself and then forcefully kill it.
 
 #### Thanks
